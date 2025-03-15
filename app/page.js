@@ -1,103 +1,412 @@
+// src/app/page.jsx
+"use client";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { SearchIcon, ShoppingCartIcon, UserIcon, MenuIcon } from "lucide-react";
+import HeroSection from "@/components/common/heroSection";
+import PromotionalCarousel from "@/components/common/promotionalCarousel";
+import HeroSection1 from "@/components/common/heroSection1";
 import Image from "next/image";
+import ProductCategoryCarousel from "@/components/common/productCategoryCarousel";
+import MegaMenu from "@/components/common/megaMenu";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen flex flex-col">
+      {/* Header/Navigation */}
+      <header className="bg-white shadow-sm">
+        {/* Top bar */}
+        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            <div className="md:hidden">
+              <Button variant="ghost" size="icon">
+                <MenuIcon className="h-5 w-5" />
+              </Button>
+            </div>
+            <Link href="/" className="text-2xl font-bold text-blue-700">
+              VistaPrint
+            </Link>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="hidden md:flex items-center space-x-6">
+            <Link
+              href="/products"
+              className="text-sm font-medium text-gray-700 hover:text-blue-700"
+            >
+              All Products
+            </Link>
+            <Link
+              href="/business-cards"
+              className="text-sm font-medium text-gray-700 hover:text-blue-700"
+            >
+              Business Cards
+            </Link>
+            <Link
+              href="/marketing"
+              className="text-sm font-medium text-gray-700 hover:text-blue-700"
+            >
+              Marketing Materials
+            </Link>
+            <Link
+              href="/clothing"
+              className="text-sm font-medium text-gray-700 hover:text-blue-700"
+            >
+              Clothing & Bags
+            </Link>
+            <Link
+              href="/signage"
+              className="text-sm font-medium text-gray-700 hover:text-blue-700"
+            >
+              Signs & Banners
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="icon">
+              <SearchIcon className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <UserIcon className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <ShoppingCartIcon className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Promotion Section */}
+      <section className="bg-blue-50 ">
+        <MegaMenu />
+      </section>
+
+      {/* Promotion Section */}
+      <section className="bg-blue-50 ">
+        <PromotionalCarousel />
+      </section>
+
+      {/* Hero Section */}
+      <section className="bg-blue-50 ">
+        <HeroSection1 />
+      </section>
+
+      {/* Explore Category Section */}
+      <section className="bg-blue-50 ">
+        <ProductCategoryCarousel />
+      </section>
+
+      {/* Popular Products */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
+            Popular Products
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {popularProducts.map((product) => (
+              <div key={product.id} className="group">
+                <div className="aspect-square bg-gray-100 rounded-md overflow-hidden mb-3">
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    <Image
+                      src={product?.imge}
+                      width={500}
+                      height={300}
+                      alt="Person holding a business card"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <h3 className="font-medium group-hover:text-blue-700">
+                  {product.name}
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Starting at {product.price}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Design Templates */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
+            Design Templates
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {designCategories.map((category) => (
+              <div
+                key={category.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <div className="aspect-video bg-gray-100">
+                  <div className="w-full h-full flex items-center justify-center text-gray-400">
+                    <Image
+                      src={category?.imge}
+                      width={500}
+                      height={300}
+                      alt="Person holding a business card"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="font-medium text-lg mb-2">{category.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {category.description}
+                  </p>
+                  <Button variant="outline" size="sm">
+                    View Templates
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
+            What Our Customers Say
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-gray-200 mr-3">
+                    <Image
+                      src={testimonial?.imge}
+                      width={40}
+                      height={40}
+                      alt="Person holding a business card"
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-medium">{testimonial.name}</h4>
+                    <p className="text-sm text-gray-500">
+                      {testimonial.business}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-gray-700">"{testimonial.quote}"</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12 mt-auto">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="font-bold mb-4">Products</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Business Cards
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Flyers & Brochures
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Banners & Signs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Clothing & Bags
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Design Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Templates
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Ideas & Advice
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Business Hub
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Press
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Sustainability
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold mb-4">Support</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Help Center
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    Shipping & Returns
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-300 hover:text-white">
+                    File Preparation
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between">
+            <p className="text-gray-400 text-sm mb-4 md:mb-0">
+              © 2025 Your Company Name. This is a clone for educational
+              purposes.
+            </p>
+            <div className="flex space-x-4">
+              <Link href="#" className="text-gray-400 hover:text-white">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white">
+                Terms of Service
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-white">
+                Accessibility
+              </Link>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
 }
+
+// Mock data
+const popularProducts = [
+  {
+    id: 1,
+    name: "Standard Business Cards",
+    price: "$9.99",
+    imge: "/image/dressImage6.jpg",
+  },
+  {
+    id: 2,
+    name: "Custom Flyers",
+    price: "$14.99",
+    imge: "/image/dressImage2.jpg",
+  },
+  {
+    id: 3,
+    name: "Promotional Banners",
+    price: "$24.99",
+    imge: "/image/dressImage3.jpg",
+  },
+  {
+    id: 4,
+    name: "Custom T-Shirts",
+    price: "$19.99",
+    imge: "/image/dressImage4.jpg",
+  },
+];
+
+const designCategories = [
+  {
+    id: 1,
+    name: "Business Cards",
+    description:
+      "Make a lasting impression with professional business card designs.",
+    imge: "/image/dressImage5.jpg",
+  },
+  {
+    id: 2,
+    name: "Marketing Materials",
+    description:
+      "Promote your business with eye-catching brochures, flyers, and postcards.",
+    imge: "/image/dressImage6.jpg",
+  },
+  {
+    id: 3,
+    name: "Signage & Banners",
+    description: "Get noticed with high-quality signs, banners, and posters.",
+    imge: "/image/dressImage2.jpg",
+  },
+];
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Sarah Johnson",
+    business: "Bloom Cafe",
+    quote:
+      "The business cards I ordered exceeded my expectations. The quality is outstanding and they arrived earlier than expected!",
+    imge: "/image/testimonial1.jpg",
+  },
+  {
+    id: 2,
+    name: "Michael Chen",
+    business: "Chen Design Studio",
+    quote:
+      "I've been using their services for all my marketing materials. The consistency in quality has helped build my brand.",
+    imge: "/image/testimonial2.jpg",
+  },
+  {
+    id: 3,
+    name: "Elena Rodriguez",
+    business: "Sunshine Bakery",
+    quote:
+      "Their custom banners helped us attract more customers to our grand opening. Will definitely order again!",
+    imge: "/image/testimonial3.jpg",
+  },
+];
